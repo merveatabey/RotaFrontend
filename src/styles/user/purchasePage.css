@@ -1,0 +1,136 @@
+.purchase-page {
+  min-height: 100vh; /* Sayfa yüksekliğini doldurur */
+  background-color: #cebe96;
+; 
+  display: flex;
+  justify-content: center; /* İçeriği yatay ortala */
+  align-items: flex-start; /* İçeriği yukarı hizala */
+  padding: 40px 20px; /* Sayfa kenar boşlukları */
+  box-sizing: border-box;
+}
+
+.purchase-container {
+  max-width: 600px;  /* İçerik maksimum genişliği */
+  width: 100%;       /* Küçük ekranlarda tam genişlik */
+  background-color: #fff9f0; 
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+
+/* Form container tüm formu kapsıyor ve taşmayı engelliyor */
+.purchase-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Başlık ve açıklamalar */
+.purchase-page h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+.purchase-page p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Genel buton stili */
+.purchase-page button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.purchase-page button:hover {
+  background-color: #2980b9;
+}
+
+/* Card form container (ikinci form) */
+.card-form {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  animation: dropdownFade 0.4s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card form başlığı */
+.card-form h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #34495e;
+}
+
+/* Inputların hepsi kapsayıcı genişliği geçmesin */
+.card-form input {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+.card-form input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Label ve input yan yana grup düzeni */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group label {
+  flex-shrink: 0;
+  width: 120px; /* Sabit genişlik */
+  font-weight: 600;
+  color: #2c3e50;
+  white-space: nowrap;
+}
+
+.input-group input {
+  flex-grow: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+/* Dropdown animasyonu */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

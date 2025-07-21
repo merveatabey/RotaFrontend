@@ -1,0 +1,210 @@
+/* Navbar genel */
+.transparent-navbar {
+  position: fixed;
+  top: 0;
+    left: 0; /* EKLE: kesin hizalama için */
+  right: 0; /* EKLE: sağa hizalama için */
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+/* Navbar container */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+/* Marka adı */
+.brand-name {
+  font-size: 26px;
+  font-weight: 900;
+  color: white;
+  font-family: 'Segoe UI Black', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Nav linkler */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a,
+.dropbtn {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-size: 13.5px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  gap: 8px;
+}
+
+.nav-links a i,
+.dropbtn i:first-child {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Hover rengi */
+.nav-links a:hover,
+.dropbtn:hover {
+  color : #c8961f;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+  margin-left: 4px;
+  transition: transform 0.3s ease;
+}
+
+/* Dropdown içerik */
+.dropdown-content {
+  position: absolute;
+  top: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  min-width: 140px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  flex-direction: column;
+  z-index: 1500;
+  padding: 8px 0;
+}
+.dropdown-content a {
+  color: #6d6c6c;
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: left;
+  display: flex;       /* flex yaparak yan yana hizaladık */
+  align-items: center; /* dikey ortala */
+  gap: 8px;            /* ikon ve yazı arası boşluk */
+  transition: background-color 0.2s ease;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #c8961f;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Arama kutusu container */
+.search-box {
+  position: relative; /* arama sonuçları için */
+  display: flex;
+  flex-direction: column;
+  max-width: 280px; /* navbar ile uyumlu */
+  width: 100%;
+}
+
+/* Form */
+.search-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  padding: 6px 12px;
+  height: 36px;
+}
+
+/* Input */
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 6px 8px;
+  font-size: 15px;
+  flex: 1;
+  color: #333;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+/* Buton */
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* ikon boyutu */
+  color: inherit;
+  padding: 0;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button i {
+  margin-right: 20px;
+  font-size: 18px; /* ikon boyutu */
+}
+.search-button:hover {
+  color: #c8961f;
+}
+
+/* Arama sonuçları paneli */
+.search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1500;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  width: 100%; /* Arama kutusu genişliği kadar */
+  box-sizing: border-box;
+}
+
+/* Arama sonucu item */
+.search-result-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-weight:  bold;
+}
+
+.search-result-item:hover,
+.search-result-item:focus {
+  background-color: #f5f5f5;
+  outline: none;
+  color: #b35400;
+}

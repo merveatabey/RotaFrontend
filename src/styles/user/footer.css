@@ -1,0 +1,52 @@
+.footer {
+  background-color: #dfdad2; /* Açık krem/kahve alt tonlu */
+  color: #504b4b;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #5d5858;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0%;
+  background: #d18e00;
+  transition: width 0.3s ease;
+  margin-top: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-link:hover {
+  color: #a66b00;
+}
+
+.footer-link:hover::after {
+  width: 60%;
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+}

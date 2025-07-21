@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './pages/auth/Login';
+import HomePage from './pages/user/HomePage';
+import ToursPage from './pages/user/ToursPage';
+import TourDetailPage from './pages/user/TourDetailPage';
+import FavoritesPage from './pages/user/FavoritesPage';
+import ReservationPage from './pages/user/ReservationPage';
+import PurchasePage from './pages/user/PurchasePage';
+import MyToursPage from './pages/user/MyToursPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <Router>
+      <Routes>
+        <Route path='/' element = {<Login/>}/>
+        {/* <Route path='/register' element = {<Register/>}/>
+         <Route path='/forgot-password' element = {<ForgotPassword/>}/>  */}
+         <Route path='/HomePage' element = {<HomePage/>}/>
+        <Route path='/tours' element={<ToursPage/>} />
+         <Route path="/tour/:id" element={<TourDetailPage />} /> 
+         <Route path='/favorites' element={<FavoritesPage/>}/>
+         <Route path='/tour/:id/reservation' element={<ReservationPage/>} /> 
+         <Route path='/purchase/:tourId' element={<PurchasePage/>} />
+        <Route path='/my-tours' element={<MyToursPage/>} />
+
+
+         {/* <Route path='/admin-login' element = {<AdminLogin/>}/>
+         <Route path='/AdminHome' element = {<AdminHomePage/>}/>
+         <Route path='/admin/hotels' element={<HotelManagementPage/>} />
+         <Route path='/admin/tours' element={<TourManagementPage/>} />
+         <Route path='/admin/activities' element={<TourActivityManagementPage/>} />
+         <Route path='/admin/tourdays' element={<TourDayManagementPage/>} />
+         <Route path='/admin/users' element={<UserManagementPage/>} />
+         <Route path='/admin/reservations' element={<ReservationManagementPage/>} />
+         <Route path='/admin/reports' element={<AdminReportPage/>} />
+         <Route path='/admin/settings' element={<SettingsPage/>} />*/}
+
+
+
+      </Routes>
+    </Router>
   );
 }
 

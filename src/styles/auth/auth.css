@@ -1,0 +1,105 @@
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #b2f7ef, #fceabb, #f8b195); /* soft havalı yeşil, sarı, pembe tonları */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Arka plana solukluk ve gölge efekti için overlay */
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 62, 80, 0.18); /* soluk koyu gölge */
+  box-shadow: 0 0 120px 40px rgba(44, 62, 80, 0.18);
+  z-index: 1;
+}
+
+
+/* Kartın üstte kalması için z-index */
+.login-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(26, 188, 156, 0.5);
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #16a085; /* koyu yeşil */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login-input {
+  padding: 1rem;
+  border: 1.5px solid #f39c12; /* turuncu kenar */
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-input::placeholder {
+  color: #e67e22; /* yumuşak turuncu */
+}
+
+.login-input:focus {
+  border-color: #16a085;
+  box-shadow: 0 0 8px 2px rgba(22, 160, 133, 0.6);
+  outline: none;
+}
+
+.login-button {
+  background-color: #f39c12; /* turuncu */
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #d35400; /* koyu turuncu */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(211, 84, 0, 0.7);
+}
+
+.login-footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #16a085;
+  cursor: pointer;
+  transition: text-decoration 0.2s ease;
+}
+
+.login-footer:hover {
+  text-decoration: underline;
+}
+.login-form p {
+  margin: 4px 0;
+}

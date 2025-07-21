@@ -1,0 +1,92 @@
+.reservation-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background: #f7f7f7;
+  min-height: 100vh;
+}
+
+.reservation-card {
+  background: white;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-card h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.info {
+  background: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.input-group textarea {
+  width: 100%;
+  min-height: 120px; /* Daha yüksek bir alan */
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical; /* Kullanıcı dikeyde boyutlandırabilir */
+  font-size: 16px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+
+.total {
+  font-size: 18px;
+  margin: 20px 0;
+  color: #16a085;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1abc9c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #16a085;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 100px;
+  font-size: 18px;
+}

@@ -1,0 +1,123 @@
+
+/* Sayfa ana container */
+.tours-page {
+  min-height: 100vh; /* Sayfa yüksekliği kadar */
+  width: 100vw;       /* Sayfa genişliği kadar */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #cebe96;
+  box-sizing: border-box;
+}
+
+
+/* Filtre butonunun bulunduğu alan */
+.filter-button-container {
+  display: flex;
+  justify-content: flex-end; /* sağa yasla */
+  margin-top: 80px;
+  margin-right: 30px; /* sağdan boşluk */
+}
+
+.filter-button {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+/* Sayfa başlığı */
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff; 
+  text-align: center; /* Ortala */
+  margin-bottom: 30px;
+}
+
+/* Turların grid olarak gösterildiği alan */
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Her bir tur kartı */
+.tour-card {
+  position: relative;
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.3s ease;
+  color: white;
+  overflow: hidden;
+}
+
+/* Hover ve focus durumunda büyütme ve gölge */
+.tour-card:focus,
+.tour-card:hover {
+  outline: none;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* Kart üzerindeki yazı arka planı */
+.overlay-text {
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  padding: 12px 10px;
+  border-radius: 0 0 8px 8px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  user-select: none;
+}
+
+/* Sayfa altındaki ek metin */
+.tours-page h3 {
+  margin-top: 40px;
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+}
+
+.slogan {
+  margin-top: 60px;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15); /* saydam beyaz */
+  backdrop-filter: blur(8px); /* blur efekti */
+  -webkit-backdrop-filter: blur(8px); /* Safari için */
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  max-width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 12px rgba(181, 177, 177, 0.2);
+  transition: transform 0.3s ease;
+  
+}
+
+.slogan:hover {
+  transform: scale(1.02);
+}
