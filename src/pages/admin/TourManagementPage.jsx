@@ -97,7 +97,7 @@ const TourManagementPage = ({ adminName }) => {
       <AdminNavbar adminName={adminName} />
 
       <div className="tour-management-content">
-        <div className="tour-header">
+        <div className="tour-mng-header">
           <h2>Tur Yönetimi</h2>
           <button onClick={handleAdd} className="add-button">+ Tur Ekle</button>
         </div>

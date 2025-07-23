@@ -99,7 +99,7 @@ const fetchReports = async () => {
 
   return (
     <div className="admin-home">
-      <AdminNavbar adminName/>
+      <AdminNavbar adminName="Admin" />
       <div className="admin-content">
         <main className="dashboard report-page">
           <h2>Raporlar</h2>

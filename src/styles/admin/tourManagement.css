@@ -28,7 +28,7 @@
 }
 
 .tour-management-content {
-   position: absolute;
+  position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -47,8 +47,7 @@
 }
 
 
-.tour-header {
-  height: 20px;
+.tour-mng-header {
   display: flex;
   justify-content: space-between;
   align-items: center;

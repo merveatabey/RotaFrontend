@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../../styles/auth/forgotPassword.css';
 
@@ -7,6 +8,8 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
@@ -14,6 +17,10 @@ const ForgotPassword = () => {
     try {
       await axios.post("https://localhost:6703/api/Auth/forgot-password", { email });
       setMessage("Eğer bu e-posta sistemde kayıtlıysa, şifre sıfırlama talimatları gönderildi.");
+       // 3 saniye sonra reset-password sayfasına yönlendir
+      setTimeout(() => {
+        navigate("/reset-password");
+      }, 3000);
     } catch (err) {
       setError("Bir hata oluştu. Lütfen tekrar deneyin.");
     }

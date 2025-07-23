@@ -17,21 +17,26 @@ const  Register = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
 
-        try {
-            
-            const response = await axios.post("https://localhost:6703/api/Auth/register", { email, password, fullName });
-            const token = response.token.data;
-            if(token){
-            localStorage.setItem('token', token);
-            console.log("registration succesful", token);
-            navigate("/");
-            } else {
-            setError("Registration successful but no token received.");
-        }
-           
-        } catch (err) {
-            console.log(err.response?.data?.message || "register failed");
-        }
+       try {
+  const response = await axios.post("https://localhost:6703/api/Auth/register", {
+    FullName: fullName,
+    Email: email,
+    Password: password
+  });
+
+  const token = response.data.token; // ← doğru şekilde token alınmalı
+  if (token) {
+    localStorage.setItem("token", token);
+    console.log("Registration successful", token);
+    navigate("/");
+  } else {
+    setError("Registration successful but no token received.");
+  }
+} catch (error) {
+  console.error("Registration error:", error.response?.data || error.message);
+  setError("Registration failed. Please check your input.");
+}
+
     }
 
     return (

@@ -19,6 +19,7 @@ import TourdayManagementPage from './pages/admin/TourdayManagementPage';
 import UserManagementPage from './pages/admin/UserManagementPage';
 import ReservationManagementPage from './pages/admin/ReservationManagementPage';
 import ReportManagementPage from './pages/admin/ReportManagementPage';
+import ResetPassword from './pages/auth/ResetPassword';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/' element = {<Login/>}/>
         <Route path='/register' element = {<Register/>}/>
          <Route path='/forgot-password' element = {<ForgotPassword/>}/> 
+         <Route path='/reset-password' element = {<ResetPassword/>}/>
          <Route path='/HomePage' element = {<HomePage/>}/>
         <Route path='/tours' element={<ToursPage/>} />
          <Route path="/tour/:id" element={<TourDetailPage />} /> 
@@ -41,11 +43,10 @@ function App() {
          <Route path='/admin/hotels' element={<HotelManagementPage/>} />
          <Route path='/admin/tours' element={<TourManagementPage/>} />
          <Route path='/admin/activities' element={<TourActivityManagementPage/>} />
-       <Route path='/admin/tour-days' element={<TourdayManagementPage/>} />
-        <Route path='/admin/users' element={<UserManagementPage/>} />
-        <Route path='/admin/reservations' element={<ReservationManagementPage/>} />
-           <Route path='/admin/reports' element={<ReportManagementPage/>} />
-         {/*<Route path='/admin/settings' element={<SettingsPage/>} />*/}
+         <Route path='/admin/tour-days' element={<TourdayManagementPage/>} />
+         <Route path='/admin/users' element={<UserManagementPage/>} />
+         <Route path='/admin/reservations' element={<ReservationManagementPage/>} />
+         <Route path='/admin/reports' element={<ReportManagementPage/>} />
 
 
 

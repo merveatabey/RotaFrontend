@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaHeart, FaRegHeart } from "react-icons/fa";  // React Icons
 import "../../styles/user/tourDetail.css";
+import html2pdf from "html2pdf.js";
 
 const TourDetailPage = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const TourDetailPage = () => {
 
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
+
 
   useEffect(() => {
     axios.get(`https://localhost:6703/api/Tour/${id}/details`)
@@ -32,6 +34,22 @@ const TourDetailPage = () => {
       .catch(() => setIsFavorited(false));
     }
   }, [id, userId, token]);
+
+const pdfRef = useRef();
+
+  const handleDownloadPDF = () => {
+    const element = pdfRef.current;
+    const opt = {
+      margin: 0.5,
+      filename: `${tour.title
+        .toLowerCase()
+        .replace(/\s+/g, "_")}-tur-detayi.pdf`,
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+    };
+    html2pdf().set(opt).from(element).save();
+  };
 
   if (!tour) return <div>Yükleniyor...</div>;
 
@@ -58,7 +76,7 @@ const TourDetailPage = () => {
 
   };
 
-  return (
+   return (
     <div className="tour-detail-page">
       <div
         className="tour-header"
@@ -73,13 +91,42 @@ const TourDetailPage = () => {
       <section className="tour-info" style={{ position: "relative" }}>
         <h2>Genel Bilgiler</h2>
 
-        {/* Favori butonu sağ üst köşede */}
+        {/* Butonlar, PDF dışı kalacak şekilde üstte */}
+        <button className="pdf-download-btn"
+          onClick={handleDownloadPDF}
+          title="PDF Olarak İndir"
+          style={{
+            backgroundColor: "#4caf50",
+            color: "white",
+            border: "none",
+            borderRadius: 5,
+            padding: "6px 10px",
+            cursor: "pointer",
+            fontWeight: "600",
+            fontSize: "14px",
+            height: "36px",
+            marginRight: "10px",
+            position: "absolute",
+            top: 15,
+            right: 60,
+            zIndex: 10,
+          }}
+        >
+          PDF Olarak İndir
+        </button>
+
         <button
           className="favorite-btn"
           onClick={handleAddFavorite}
           disabled={isFavorited}
           title={isFavorited ? "Favorilere eklendi" : "Favorilere ekle"}
           aria-label="Favorilere ekle"
+          style={{
+            position: "absolute",
+            top: 15,
+            right: 15,
+            zIndex: 10,
+          }}
         >
           {isFavorited ? (
             <FaHeart className="heart-icon filled" />
@@ -88,31 +135,34 @@ const TourDetailPage = () => {
           )}
         </button>
 
-        <div className="info-grid">
-          <div className="info-card">
-            <strong>Kategori</strong>
-            <p>{tour.category}</p>
-          </div>
-          <div className="info-card">
-            <strong>Başlangıç</strong>
-            <p>{new Date(tour.startDate).toLocaleDateString()}</p>
-          </div>
-          <div className="info-card">
-            <strong>Bitiş</strong>
-            <p>{new Date(tour.endDate).toLocaleDateString()}</p>
-          </div>
-          <div className="info-card">
-            <strong>Kapasite</strong>
-            <p>{tour.capacity}</p>
-          </div>
-          <div className="info-card">
-            <strong>Fiyat</strong>
-            <p>{tour.price} ₺</p>
+        {/* PDF'e dahil edilecek içerik burada başlıyor */}
+        <div ref={pdfRef}>
+          <div className="info-grid">
+            <div className="info-card">
+              <strong>Kategori</strong>
+              <p>{tour.category}</p>
+            </div>
+            <div className="info-card">
+              <strong>Başlangıç</strong>
+              <p>{new Date(tour.startDate).toLocaleDateString()}</p>
+            </div>
+            <div className="info-card">
+              <strong>Bitiş</strong>
+              <p>{new Date(tour.endDate).toLocaleDateString()}</p>
+            </div>
+            <div className="info-card">
+              <strong>Kapasite</strong>
+              <p>{tour.capacity}</p>
+            </div>
+            <div className="info-card">
+              <strong>Fiyat</strong>
+              <p>{tour.price} ₺</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="tour-hotels">
+      <section className="tour-hotels" ref={pdfRef}>
         <h2>Oteller</h2>
         <ul>
           {tour.hotels.map((hotel, index) => (
@@ -124,7 +174,7 @@ const TourDetailPage = () => {
         </ul>
       </section>
 
-      <section className="tour-program">
+      <section className="tour-program" ref={pdfRef}>
         <h2>Tur Programı</h2>
         {tour.days.map((day) => (
           <div key={day.id} className="tour-day">
