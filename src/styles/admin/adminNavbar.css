@@ -1,0 +1,80 @@
+.admin-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between; /* İsteğe bağlı olarak flex-start yapılabilir */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.admin-logo a {
+  font-size: 26px;
+  font-weight: 900;
+  color: white;
+  font-family: 'Segoe UI Black', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.admin-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem; /* Burayı küçültünce linkler birbirine yaklaşır */
+  margin-right: 4rem; /* Logoya yaklaşması için isteğe bağlı eklenebilir */
+}
+
+.admin-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.admin-links li a:hover {
+  color: #399a7d;
+}
+
+.admin-user {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.admin-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: rgba(255, 255, 255, 0.15); /* yarı saydam beyaz */
+  backdrop-filter: blur(10px); /* arka planı bulanıklaştır */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.admin-dropdown a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.admin-dropdown a:hover {
+  color: #ffd54f;
+}
+
